@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+{ set +x; } 2>/dev/null
+
+usage() {
+    echo "usage: $(basename $0) quantity quantitative1 quantitative2 quantitative3" 1>&2
+    [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; exit
+}
+
+[[ $1 == "-h" ]] || [[ $1 == "--help" ]] && usage "$@"
+
+[[ $# != 4 ]] || [[ -z $1 ]] || [[ -z $2 ]] || [[ -z $3 ]] || [[ -z $4 ]] && usage
+
+n=$(($1 % 100))
+n1=$(($n % 10))
+if [ $n -gt 10 -a $n -lt 20 ]; then echo $4;
+    elif [ $n1 -gt 1 -a $n1 -lt 5 ]; then echo $3;
+    elif [ $n1 -eq 1 ]; then echo $2;
+    else echo $4
+fi;:
