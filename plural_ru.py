@@ -1,12 +1,14 @@
 #!/usr/bin/env python
+
+__all__ = ['ru']
+
+
 """выводит строку со склоненным существительным"""
 # -*- coding: utf-8 -*-
 import click
 import os
-import public
 
 
-@public.add
 def ru(value, quantitative):
     """возвращает строку со склоненным существительным"""
     if value % 100 in (11, 12, 13, 14):
